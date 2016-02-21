@@ -2,7 +2,6 @@ package smal.tasks;
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public class SortStringOrderABC {
 
@@ -60,7 +59,9 @@ public class SortStringOrderABC {
         try {
             FileOutputStream fos = new FileOutputStream(new File("sorted_" + fileName));
 
-            String outputcontent = Arrays.stream(content).collect(Collectors.joining("\n"));
+//            String outputcontent = Arrays.stream(content).collect(Collectors.joining("\n"));
+
+            String outputcontent = String.join("\n", content);
 
             fos.write(outputcontent.getBytes());
             fos.flush();
