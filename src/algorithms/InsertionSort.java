@@ -1,7 +1,5 @@
 package algorithms;
 
-import java.util.Arrays;
-
 /** Insertion sort
  * compare first two elements, put in proper order
  * compare first three elements, put in proper order
@@ -25,7 +23,19 @@ public class InsertionSort {
                 target[j] = target[j-1];
                 target[j-1] = temp;
             }
-            System.out.println(Arrays.toString(target));
         }
+    }
+
+    public static int[] prometeusSort(int[] target){
+        for(int j = 0; j < target.length; j++){
+            int key = target[j];
+            int i = j-1;
+            while(i >= 0 && target[i] > key){
+                target[i+1] = target[i];
+                --i;
+            }
+            target[i+1] = key;
+        }
+        return target;
     }
 }
